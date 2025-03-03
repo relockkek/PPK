@@ -9,38 +9,47 @@
         Title="MainWindow" Height="450" Width="800">
     <Window.Resources>
         <DataTemplate DataType="{x:Type models:Student}">
-            <StackPanel>
-                <TextBlock Text="{Binding FIO, StringFormat=ФИО: {0}}"/>
-                <TextBlock Text="{Binding Group, StringFormat=Группа: {0}}"/>
-                <TextBlock Text="{Binding Weight, StringFormat=Вес: {0}}"/>
-            </StackPanel>
+            <Border BorderBrush="LightGray" BorderThickness="1" Padding="10" Margin="5">
+                <StackPanel>
+                    <TextBlock Text="{Binding FIO, StringFormat=ФИО: {0}}" FontWeight="Bold"/>
+                    <TextBlock Text="{Binding Group, StringFormat=Группа: {0}}" Margin="0 5 0 0"/>
+                    <TextBlock Text="{Binding Weight, StringFormat=Вес: {0}}" Margin="0 5 0 0"/>
+                </StackPanel>
+            </Border>
         </DataTemplate>
+        
         <DataTemplate DataType="{x:Type models:Groups}">
-            <StackPanel>
-                <Label Content="{Binding Name, StringFormat=Специальность: {0}}"/>
-                <TextBlock Text="{Binding Cource, StringFormat=Курс: {0}}"/>
-                <TextBlock Text="{Binding NumOfStud, StringFormat=Количество студентов в группе: {0}}"/>
-            </StackPanel>
+            <Border BorderBrush="LightGray" BorderThickness="1" Padding="10" Margin="5">
+                <StackPanel>
+                    <Label Content="{Binding Name, StringFormat=Специальность: {0}}" FontWeight="Bold"/>
+                    <TextBlock Text="{Binding Cource, StringFormat=Курс: {0}}" Margin="0 5 0 0"/>
+                    <TextBlock Text="{Binding NumOfStud, StringFormat=Количество студентов в группе: {0}}" Margin="0 5 0 0"/>
+                </StackPanel>
+            </Border>
         </DataTemplate>
         <DataTemplate DataType="{x:Type models:Curator}">
-            <StackPanel>
-                <Label Content="{Binding FIO, StringFormat=ФИО: {0}}"/>
-                <TextBlock Text="{Binding AdminGroup, StringFormat=Владения куратора: {0}}"/>
-                <TextBlock Text="{Binding Weight, StringFormat=Вес: {0}}"/>
-            </StackPanel>
+            <Border BorderBrush="LightGray" BorderThickness="1" Padding="10" Margin="5">
+                <StackPanel>
+                    <Label Content="{Binding FIO, StringFormat='ФИО: {0}'}" FontWeight="Bold"/>
+                    <TextBlock Text="{Binding AdminGroup, StringFormat='Группы во владении куратора: '}" Margin="0 5 0 0"/>
+                    <TextBlock Text="{Binding Weight, StringFormat='Вес: {0}'}" Margin="0 5 0 0"/>
+                </StackPanel>
+            </Border>
         </DataTemplate>
     </Window.Resources>
+    
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
-            <RowDefinition />
+            <RowDefinition/>
         </Grid.RowDefinitions>
-        <StackPanel Orientation="Horizontal">
-            <Button Content="Студенты" Click="GetStudentList"/>
-            <Button Content="Группы" Click="GetGroupList"/>
-            <Button Content="Кураторы" Click="GetCuratorList"/>
+        
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
+            <Button Content="Студенты" Click="GetStudentList" Margin="0 0 5 0"/>
+            <Button Content="Группы" Click="GetGroupList" Margin="0 0 5 0"/>
+            <Button Content="Кураторы" Click="GetCuratorList" Margin="0 0 5 0"/>
             <Button Content="Редактор выделенной записи" Click="EditItem"/>
         </StackPanel>
-        <ListBox Grid.Row="1" ItemsSource="{Binding Items}" SelectedItem="{Binding Item}"/>
+        <ListBox Grid.Row="1" ItemsSource="{Binding Items}" SelectedItem="{Binding Item}" Margin="10" Background="WhiteSmoke"/>
     </Grid>
 </Window>

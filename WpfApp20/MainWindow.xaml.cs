@@ -72,7 +72,7 @@ namespace WpfApp20
         {
             Items = new List<Curator>()
             {
-                new Curator{FIO = "Довгань Сергей Витальевич", AdminGroup="1115, 1125", Weight="Имеет"},
+                new Curator{FIO = "Довгань Сергей Витальевич", AdminGroup= "1115, 1125", Weight="Имеет"},
             };
         }
 
